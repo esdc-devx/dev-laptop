@@ -1,0 +1,13 @@
+---
+- name: "Default Ionic Build Platform for MTS"
+  hosts: localhost
+  sudo: true
+  roles:
+    - role: geerlingguy.nodejs
+    - role: geerlingguy.docker
+    - role: brentwg.azure-cli
+    - role: ngetchell.vscode
+    - role: andrewrothstein.terraform
+    - role: ocha.dotnet-core
+  vars:
+    - nodejs_version: "10.x" #latest LTS version of Nodejs
