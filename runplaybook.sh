@@ -7,12 +7,15 @@ OPTIND=1         # Reset in case getopts has been used previously in the shell.
 output_file=""
 force=0
 extensions=0
+skipansible=0
 
-while getopts ":" opt; do
+while getopts "fes" opt; do
     case "$opt" in
     f) force=1
         ;;
     e) extensions=1
+        ;;
+    s) skipansible=1
         ;;
     esac
 done
@@ -21,14 +24,16 @@ shift $((OPTIND-1))
 
 [ "${1:-}" = "--" ] && shift
 
+if [ skipansible = 0 ]; then
+  if [ force = 1 ]; then
+    sudo ansible-galaxy install -r ./requirements.yml --force
+  else
+    sudo ansible-galaxy install -r ./requirements.yml
+  fi
 
-if [ force = 1 ]; then
-  sudo ansible-galaxy install -r ./requirements.yml --force
-else
-  sudo ansible-galaxy install -r ./requirements.yml
+  sudo ansible-playbook playbook.yml --connection=local
+
 fi
-
-sudo ansible-playbook playbook.yml --connection=local
 
 if [ extensions = 1 ]; then
   echo "Cloning VsCode Extensions"
