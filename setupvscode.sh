@@ -27,3 +27,5 @@ code --install-extension technosophos.vscode-helm
 code --install-extension vscodevim.vim
 code --install-extension vscoss.vscode-ansible
 code --install-extension zuoez02.tslint-snippets
+# Vue JS Plugins
+code --install-extension octre.vetur
