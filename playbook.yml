@@ -13,10 +13,12 @@
   tasks:
     - name: Install Gnome Tweaks fix right-click issue
       apt: 
-        - name: gnome-tweaks
-          state: present
-        - name: glide
-          state: present
+        name: gnome-tweaks
+        state: present
+    - name: Install Glide
+      apt:
+        name: golang-glide
+        state: present
   vars:
     - nodejs_version: "10.x" #latest LTS version of Nodejs
     - nodejs_npm_global_packages:
