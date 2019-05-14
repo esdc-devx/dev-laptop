@@ -3,7 +3,7 @@ name: default
 
 steps:
 - name: shellcheck
-  image: ubuntu:lts
+  image: ubuntu:18.04
   commands:
   - snap install --chrome=edge shellcheck
   - shellcheck *.sh 
