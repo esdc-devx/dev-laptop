@@ -5,5 +5,5 @@ steps:
 - name: shellcheck
   image: ubuntu:18.04
   commands:
-  - sudo apt-get install shellcheck
+  - apt-get install shellcheck
   - shellcheck *.sh 
