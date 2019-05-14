@@ -1,15 +1,25 @@
 ---
-- name: "Default Ionic Build Platform for MTS"
+- name: "Developer Experience Team Dev Laptop"
   hosts: localhost
   sudo: true
   roles:
     - role: geerlingguy.nodejs
     - role: geerlingguy.docker
-    - role: brentwg.azure-cli
+    - role: huxoll.azure-cli
     - role: ngetchell.vscode
     - role: andrewrothstein.terraform
     - role: ocha.dotnet-core
+    - role: pixelart.chrome
+  tasks:
+    - name: Install Gnome Tweaks fix right-click issue
+      apt: 
+        - name: gnome-tweaks
+          state: present
+        - name: glide
+          state: present
   vars:
     - nodejs_version: "10.x" #latest LTS version of Nodejs
     - nodejs_npm_global_packages:
       - name: "@vue/cli"
+      - name: axe-cli
+

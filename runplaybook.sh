@@ -1,14 +1,13 @@
-#! /bin/sh
-
+#!/bin/sh
+echo "entering"
 # A POSIX variable
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
 # Initialize our own variables:
-output_file=""
 force=0
 extensions=0
 skipansible=0
-
+echo "getopts"
 while getopts "fes" opt; do
     case "$opt" in
     f) force=1
@@ -17,17 +16,21 @@ while getopts "fes" opt; do
         ;;
     s) skipansible=1
         ;;
+    **) ;;
     esac
 done
 
 shift $((OPTIND-1))
 
 [ "${1:-}" = "--" ] && shift
-
-if [ skipansible = 0 ]; then
-  if [ force = 1 ]; then
+echo "skipansible ${skipansible}"
+if [ $skipansible = 0 ]; then
+  echo "running ansible"
+  if [ $force = 1 ]; then
+    echo "forcing requirements"
     sudo ansible-galaxy install -r ./requirements.yml --force
   else
+    echo "installing requirements"
     sudo ansible-galaxy install -r ./requirements.yml
   fi
 
@@ -35,7 +38,8 @@ if [ skipansible = 0 ]; then
 
 fi
 
-if [ extensions = 1 ]; then
+echo "extensions flag: ${extensions}"
+if [ $extensions = 1 ]; then
   echo "Cloning VsCode Extensions"
   git clone https://github.com/esdc-devx/vscode
 
