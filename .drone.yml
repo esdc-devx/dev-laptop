@@ -5,5 +5,5 @@ steps:
 - name: shellcheck
   image: ubuntu:18.04
   commands:
-  - snap install --chrome=edge shellcheck
+  - sudo apt-get install shellcheck
   - shellcheck *.sh 
