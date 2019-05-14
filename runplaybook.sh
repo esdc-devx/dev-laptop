@@ -28,13 +28,13 @@ if [ $skipansible = 0 ]; then
   echo "running ansible"
   if [ $force = 1 ]; then
     echo "forcing requirements"
-    sudo ansible-galaxy install -r ./requirements.yml --force
+    ansible-galaxy install -r ./requirements.yml --force
   else
     echo "installing requirements"
-    sudo ansible-galaxy install -r ./requirements.yml
+    ansible-galaxy install -r ./requirements.yml
   fi
 
-  sudo ansible-playbook playbook.yml --connection=local
+  ansible-playbook playbook.yml --connection=local
 
 fi
 
