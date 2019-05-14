@@ -3,6 +3,7 @@ name: default
 
 steps:
 - name: shellcheck
-  image: koalaman/shellcheck:latest
+  image: ubuntu:lts
   commands:
+  - snap install --chrome=edge shellcheck
   - shellcheck *.sh 
