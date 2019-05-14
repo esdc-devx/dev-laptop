@@ -7,3 +7,8 @@ steps:
   commands:
   - apt-get update && apt-get install shellcheck
   - shellcheck *.sh 
+- name: runplaybook
+  image: ubuntu:18.04
+  commands: 
+  - ./setupansible.sh
+  - ./runplaybook.sh -e
