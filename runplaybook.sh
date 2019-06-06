@@ -1,5 +1,11 @@
 #!/bin/sh
 echo "entering"
+
+if [ "$(id -u)" -ne 0 ]; then
+        echo 'This script must be run by root' >&2
+        exit 1
+fi
+
 # A POSIX variable
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
