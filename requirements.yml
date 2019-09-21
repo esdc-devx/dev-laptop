@@ -1,8 +1,5 @@
 ---
   - src: geerlingguy.nodejs
   - src: huxoll.azure-cli
-  - src: ngetchell.vscode
   - src: geerlingguy.docker
-  - src: ocha.dotnet-core
   - src: andrewrothstein.terraform
-  - src: pixelart.chrome

@@ -1,27 +1,11 @@
 ---
-- name: "Developer Experience Team Dev Laptop"
+- name: "Ubuntu Server developer laptop"
   hosts: localhost
   sudo: true
   roles:
     - role: geerlingguy.nodejs
     - role: geerlingguy.docker
     - role: huxoll.azure-cli
-    - role: ngetchell.vscode
     - role: andrewrothstein.terraform
-    - role: ocha.dotnet-core
-    - role: pixelart.chrome
-  tasks:
-    - name: Install Gnome Tweaks fix right-click issue
-      apt: 
-        name: gnome-tweaks
-        state: present
-    - name: Install Glide
-      apt:
-        name: golang-glide
-        state: present
   vars:
     - nodejs_version: "10.x" #latest LTS version of Nodejs
-    - nodejs_npm_global_packages:
-      - name: "@vue/cli"
-      - name: axe-cli
-

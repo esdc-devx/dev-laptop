@@ -1,6 +1,6 @@
 #!  /bin/bash
 
-#Setup a laptop for Ionic Development
+#Setup a dev laptop for Docker and Terraform development
 
 apt-get update && 
 apt-get install software-properties-common -y &&
